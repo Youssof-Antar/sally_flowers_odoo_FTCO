@@ -1,0 +1,20 @@
+<t t-name="sally_flowers.AddonsItem">
+    <div class="addon-item" style="display:flex; align-items:center; gap:8px; margin:6px 0;">
+        <input
+            type="checkbox"
+            t-att-id="'addon-checkbox-' + props.addon.id"
+            t-att-checked="props.addon.selected"
+            t-on-change="() => this.props.toggleAddon()"
+        />
+        <label t-att-for="'addon-checkbox-' + props.addon.id" style="flex:1; cursor:pointer;">
+            <div>
+                <t t-out="props.addon.name" />
+            </div>
+            <div style="font-size:0.9em; opacity:0.8;"> + <t t-out="props.addon.price.toFixed(2)" />
+            </div>
+        </label>
+        <t t-if="props.addon.is_custom">
+            <span style="font-size:0.7em; color:#999;">(custom)</span>
+        </t>
+    </div>
+</t>

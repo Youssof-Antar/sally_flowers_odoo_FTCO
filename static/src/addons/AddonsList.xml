@@ -1,0 +1,5 @@
+<t t-name="sally_flowers.AddonsList">
+    <t t-foreach="props.addons" t-as="addon" t-key="addon.id">
+        <AddonsItem addon="addon" toggleAddon="() => this.toggleAddon(addon.id)" />
+    </t>
+</t>

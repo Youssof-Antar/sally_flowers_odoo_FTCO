@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('control-buttons-modal')]" position="inside">
+            <button
+                class="btn btn-secondary control-button"
+                t-on-click="() => this.onClickPopup()"
+                t-att-disabled="!this.state.isOrderlineSelected ? 'disabled' : null"
+                title="Add flower extras like glitter or handwritten notes">
+                🌸 Add Flower Add-Ons
+            </button>
+        </xpath>
+    </t>
+
+</templates>

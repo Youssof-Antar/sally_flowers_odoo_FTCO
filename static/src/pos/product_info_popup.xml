@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sally_flowers.ProductInfoPopup"
+       t-inherit="point_of_sale.ProductInfoPopup"
+       t-inherit-mode="extension">
+       <xpath expr="//Dialog" position="inside">
+        <div class="popup product-info-popup p-3">
+                <!-- Product Header -->
+            <div class="card shadow-sm border-0 mb-3">
+                <div class="card-body text-center">
+                    <h3 class="card-title fw-bold mb-2">
+                        <t t-out="props.product.display_name"/>
+                    </h3>
+                    <h5 class="text-success fw-semibold mb-1">
+                        $<t t-out="props.product.lst_price"/>
+                    </h5>
+                    <p class="text-muted small mb-0">
+                        <t t-out="props.product.qty_available"/> in stock
+                    </p>
+                </div>
+            </div>
+
+                <!-- Flower Info Section -->
+            <t t-if="props.product.is_flower">
+                <div class="card border-info mb-3">
+                    <div class="card-header bg-info text-white fw-semibold">
+                        🌸 Flower Care Information
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-2">
+                            💧 Water every 
+                            <span class="fw-bold"><t t-out="props.product.watering_frequency"/></span> days
+                        </p>
+                        <p class="mb-2">
+                            💦 Water amount: 
+                            <span class="fw-bold"><t t-out="props.product.watering_amount"/></span> ml
+                        </p>
+                        <t t-if="props.product.scientific_name">
+                            <p class="mb-2 text-muted fst-italic">
+                                Scientific Name: 
+                                <span class="fw-semibold text-dark"><t t-out="props.product.scientific_name"/></span>
+                            </p>
+                        </t>
+                        <t t-if="props.product.season_start and props.product.season_end">
+                            <p class="mb-0">
+                                🌱 Season: 
+                                <span class="fw-semibold"><t t-out="props.product.season_start"/></span> →
+                                <span class="fw-semibold"><t t-out="props.product.season_end"/></span>
+                            </p>
+                        </t>
+                    </div>
+                </div>
+            </t>
+
+                <!-- Description -->
+            <t t-if="props.product.description">
+                <div class="card shadow-sm border-0 mb-3">
+                    <div class="card-header bg-light fw-semibold">
+                        📝 Description
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-0"><t t-out="props.product.description"/></p>
+                    </div>
+                </div>
+            </t>
+        </div>
+       </xpath>
+    </t>
+</templates>
