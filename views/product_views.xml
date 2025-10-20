@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_template_form_view_inherit_sally_flowers" model="ir.ui.view">
+            <field name="name">product.template.form.inherit.sally.flowers</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+
+                <!-- Insert flower fields after options -->
+                <xpath expr="//div[@name='options']" position="after">
+                    <group string="Flower Information" colspan="1">
+                        <group>
+                            <field name="is_flower" string="Is Flower" />
+                            <field name="scientific_name" string="Scientific Name" />
+                        </group>
+                        <group>
+                            <field name="watering_frequency" string="Watering Frequency (days)" />
+                            <field name="watering_amount" string="Watering Amount (ml)" />
+                            <field name="last_watered_date" string="Last watered Date" />
+                        </group>
+                        <group>
+                            <field name="season_start" string="Season Start" />
+                            <field name="season_end" string="Season End" />
+                        </group>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

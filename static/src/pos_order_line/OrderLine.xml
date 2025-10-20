@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sally_flowers.PosOrderLine"
+    t-inherit="point_of_sale.Orderline"
+    t-inherit-mode="extension">
+    <xpath expr="//li[hasclass('price-per-unit')]" position="after">
+        <t t-log="line"/>
+        <t t-log="props.slots['product-name']['__ctx']['scope']['line']['addons']"/>
+        <div class="mt-1">
+            <t t-foreach="props.slots['product-name']['__ctx']['scope']['line']['addons']" t-as="addon" t-key="addon.id">
+                - <t t-out="addon.name"/></t>
+            </div>
+    </xpath>
+    </t>
+</templates>

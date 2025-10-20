@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="sally_flowers.FlowerAddOnsPopup" owl="1">
+        <Dialog title.translate="Additional Information">
+            <div class="popup-content">
+                <!-- Dynamic list of add-ons -->
+                <div class="addons-list">
+                    <AddonsList addons="state.addons"/>
+                </div>
+
+                <hr style="margin:10px 0;" />
+                <div class="custom-addon-form" style="display:flex; gap:6px; align-items:center;">
+                    <input 
+                        type="text" 
+                        placeholder="Custom add-on name"
+                        style="flex:1;"
+                        t-model="state.customName"
+                    />
+                    <input 
+                        type="number" 
+                        step="0.01" 
+                        placeholder="Price"
+                        style="width:80px;"
+                        t-model.number="state.customPrice"
+                    />
+                    <button 
+                        class="btn btn-sm btn-primary"
+                        t-on-click="addCustomAddon"
+                        t-att-disabled="(!state.customName or state.customPrice lt 0) ? 'disabled' : null"
+                    >
+                        ➕
+                    </button>
+                </div>
+            </div>
+
+       
+        </Dialog>
+    </t>
+</templates>
